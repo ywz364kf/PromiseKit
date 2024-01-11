@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version = '8.1.1'
 
   s.source = {
-    :git => "https://github.com/mxcl/#{s.name}.git",
+    :git => "https://github.com/ywz364kf/#{s.name}.git",
     :tag => s.version,
     :submodules => true
   }
@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.13'
   s.watchos.deployment_target = '4.0'
   s.tvos.deployment_target = '10.0'
+  s.visionos.deployment_target = '1.0'
 
   s.pod_target_xcconfig = {
     'OTHER_SWIFT_FLAGS' => '-DPMKCocoaPods',
