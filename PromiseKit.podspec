@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version = '8.1.1'
 
   s.source = {
-    :git => "https://github.com/mxcl/#{s.name}.git",
+    :git => "https://github.com/ywz364kf/#{s.name}.git",
     :tag => s.version,
     :submodules => true
   }
@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.13'
   s.watchos.deployment_target = '4.0'
   s.tvos.deployment_target = '10.0'
+  s.visionos.deployment_target = '1.0'
 
   s.pod_target_xcconfig = {
     'OTHER_SWIFT_FLAGS' => '-DPMKCocoaPods',
@@ -104,6 +105,7 @@ Pod::Spec.new do |s|
     ss.osx.deployment_target = '10.13'
     ss.watchos.deployment_target = '4.0'
     ss.tvos.deployment_target = '10.0'
+    ss.visionos.deployment_target = '1.0'
   end
 
   s.subspec 'CoreLocation' do |ss|
@@ -139,6 +141,7 @@ Pod::Spec.new do |s|
     ss.osx.deployment_target = '10.13'
     ss.watchos.deployment_target = '4.0'
     ss.tvos.deployment_target = '10.0'
+    ss.visionos.deployment_target = '1.0'
   end
 
   s.subspec 'HealthKit' do |ss|
@@ -233,12 +236,13 @@ Pod::Spec.new do |s|
   picker_cc = 'Extensions/UIKit/Sources/UIImagePickerController+Promise.swift'
 
   s.subspec 'UIKit' do |ss|
-    ss.ios.source_files = ss.tvos.source_files = Dir['Extensions/UIKit/Sources/**/*'] - [picker_cc]
+    ss.ios.source_files = ss.tvos.source_files = ss.visionos.source_files = Dir['Extensions/UIKit/Sources/**/*'] - [picker_cc]
     ss.exclude_files = 'Extensions/UIKit/Sources/*.plist'
     ss.tvos.frameworks = ss.ios.frameworks = 'UIKit'
     ss.dependency 'PromiseKit/CorePromise'
     ss.ios.deployment_target = '10.0'
     ss.tvos.deployment_target = '10.0'
+    ss.visionos.deployment_target = '1.0'
   end
 
   s.subspec 'UIImagePickerController' do |ss|
